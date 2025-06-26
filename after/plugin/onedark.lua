@@ -1,0 +1,12 @@
+-- Options:
+--  dark
+--  darker
+--  cool
+--  deep
+--  warm
+--  warmer
+--  light
+-- require('onedark').setup {
+--     style = 'warmer'
+-- }
+-- require('onedark').load()
