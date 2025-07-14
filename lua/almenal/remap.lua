@@ -92,3 +92,15 @@ vim.api.nvim_create_user_command('Whoopsie', function()
     vim.cmd('Git commit --amend --no-edit')
 end, {})
 
+vim.api.nvim_create_user_command('Air', function(opts)
+    local fname = vim.api.nvim_buf_get_name(0)
+    local force = opts.fargs[1] == 'force'
+    if not force and fname:lower():sub(-2) ~= ".r" then
+        print("Current file is not an R script. Use ':Air force' to run anyway.")
+        return
+    end
+    vim.cmd('!air format %')
+end, {
+    nargs = '?'
+})
+vim.keymap.set("n", "<leader>fr", ":!air format %<CR>")
