@@ -104,3 +104,7 @@ end, {
     nargs = '?'
 })
 vim.keymap.set("n", "<leader>fr", ":!air format %<CR>")
+
+-- Python debugging: insert an f-string in debugging mode
+vim.keymap.set("n", "<leader>pp", "iprint(f\"{=}\")<Esc>F{") -- a) empty template
+vim.keymap.set("n", "<leader>pt", "yiwoprint(f\"{=}\")<Esc>F{p") -- b) debug this variable
