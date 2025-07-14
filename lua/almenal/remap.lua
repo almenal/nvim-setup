@@ -40,19 +40,18 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.dotfiles/nvim/.config/nvim/lua/almenal/packer.lua<CR>");
 -- vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
 
--- (Un)Quote Word: shortcuts to wrap a word in quotes
-vim.keymap.set("n", "<leader>qw", "ciw\"\"<Esc>P");
-vim.keymap.set("n", "<leader>uw", "di\"pBd2l");
-
--- this is a "word" in a sentence
--- this is a word in a sentence
-
 -- vim.keymap.set("n", "<leader><leader>", function()
 --     vim.cmd("so")
 -- end)
 
 
 -- These are mine ===============================
+
+-- (Un)Quote Word: shortcuts to wrap a word in quotes
+-- this is a "word" in a sentence
+-- this is a word in a sentence
+vim.keymap.set("n", "<leader>qw", "ciw\"\"<Esc>P");
+vim.keymap.set("n", "<leader>uw", "di\"pBd2l");
 
 vim.keymap.set("n", "<leader>nh", "<cmd>noh<CR>");
 vim.keymap.set("n", "<leader>vs", "<cmd>vsplit<CR><C-w>l");
