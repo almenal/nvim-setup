@@ -37,7 +37,7 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
-vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.dotfiles/nvim/.config/nvim/lua/theprimeagen/packer.lua<CR>");
+vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.dotfiles/nvim/.config/nvim/lua/almenal/packer.lua<CR>");
 -- vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
 
 -- (Un)Quote Word: shortcuts to wrap a word in quotes
@@ -66,16 +66,16 @@ vim.keymap.set("n", "<leader>wf", "100<C-w>>");
 
 -- Open remaps.lua file to add/modify custom key mappings
 vim.api.nvim_create_user_command('Remaps', function()
-    vim.cmd('tabnew ~/.config/nvim/lua/theprimeagen/remap.lua')
+    vim.cmd('tabnew ~/.config/nvim/lua/almenal/remap.lua')
     -- Fancier version which uses vim.fn.expand to expand ~ into full path
     -- and then uses lua's concatenation operator (..) to paste together
     -- both strings: edit and the result of the function 'expand'
-    -- vim.cmd('edit' .. vim.fn.expand('~/.config/nvim/lua/theprimeagen/remap.lua'))
+    -- vim.cmd('edit' .. vim.fn.expand('~/.config/nvim/lua/almenal/remap.lua'))
 end, {})
 
 -- Open packer.lua file to add/modify loaded plugins
 vim.api.nvim_create_user_command('Packages', function()
-    vim.cmd('tabnew ~/.config/nvim/lua/theprimeagen/packer.lua')
+    vim.cmd('tabnew ~/.config/nvim/lua/almenal/packer.lua')
 end, {})
 
 -- Trim trailing whitespace
