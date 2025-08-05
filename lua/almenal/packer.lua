@@ -1,19 +1,38 @@
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
 
 -- Only required if you have packer configured as `opt`
-vim.cmd.packadd('packer.nvim')
+-- vim.cmd.packadd('packer.nvim')
 
-return require('packer').startup(function(use)
+local function bootstrap_pckr()
+  local pckr_path = vim.fn.stdpath("data") .. "/pckr/pckr.nvim"
+
+  if not (vim.uv or vim.loop).fs_stat(pckr_path) then
+    vim.fn.system({
+      'git',
+      'clone',
+      "--filter=blob:none",
+      'https://github.com/lewis6991/pckr.nvim',
+      pckr_path
+    })
+  end
+
+  vim.opt.rtp:prepend(pckr_path)
+end
+
+bootstrap_pckr()
+
+
+require('pckr').add{
   ------------ theprimeagen's selection
-  use 'wbthomason/packer.nvim'
-  use {
+  'wbthomason/packer.nvim';
+  {
 	  'nvim-telescope/telescope.nvim', tag = '0.1.8',
 	  requires = { {'nvim-lua/plenary.nvim'} }
-  }
-  use("theprimeagen/harpoon")
-  use("mbbill/undotree")
-  use("tpope/vim-fugitive")
-  use {
+  };
+  "theprimeagen/harpoon";
+  "mbbill/undotree";
+  "tpope/vim-fugitive";
+  {
 	  'VonHeikemen/lsp-zero.nvim',
 	  branch = 'v1.x',
 	  requires = {
@@ -34,13 +53,13 @@ return require('packer').startup(function(use)
 		  {'L3MON4D3/LuaSnip'},
 		  {'rafamadriz/friendly-snippets'},
 	  }
-  }
-  use({"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"})
-  use("nvim-treesitter/playground")
-  use("nvim-treesitter/nvim-treesitter-context")
+  };
+  {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"};
+  "nvim-treesitter/playground";
+  "nvim-treesitter/nvim-treesitter-context";
 
   ------------------------ Themes
-  use { "ellisonleao/gruvbox.nvim" }
+  "ellisonleao/gruvbox.nvim";
   -- use 'navarasu/onedark.nvim'
  --  use({
  --      'rose-pine/neovim', as = 'rose-pine',
@@ -52,21 +71,21 @@ return require('packer').startup(function(use)
 
   ------------------------ Custom
   -- Code folding for Python
-  use("tmhedberg/SimpylFold")
+  "tmhedberg/SimpylFold";
   -- Black python formatter (dropped -- this plugin doesn't work well with neovim)
-  -- use("averms/black-nvim")
+  "averms/black-nvim";
 
   -- R setup
   -- use("jalvesaq/Nvim-R") -- this has been superseeded by R.nvim
-  use("R-nvim/R.nvim")
+  "R-nvim/R.nvim";
 
   -- Status line
-  use {
+  {
     'nvim-lualine/lualine.nvim',
     requires = { 'nvim-tree/nvim-web-devicons', opt = true }
-  }
+  };
   -- Show git diffs in the gutter (added lines, etc)
-  use("lewis6991/gitsigns.nvim")
+  "lewis6991/gitsigns.nvim";
 
   -- Auto close parenthesis, quotes, etc
   -- I don't like it, it interferes with stuff a lot.
@@ -92,7 +111,7 @@ return require('packer').startup(function(use)
   --})
 
 
-  use("hrsh7th/cmp-emoji")
+  "hrsh7th/cmp-emoji";
 
-end)
+}
 

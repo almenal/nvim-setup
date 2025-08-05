@@ -10,14 +10,14 @@ git clone https://github.com/almenal/nvim-setup.git ~/.config/nvim
 Then open neovim in any location with
 
 ```
-neovim .
+nvim .
 ```
 
 You will probably see a lot of error messages due to misconfigured stuff.
 Don't panick, just synchronize your plugins by running
 
 ```
-:PackerSync
+:Pckr sync
 ```
 
 Let packer due its magic and you should be good to go.
