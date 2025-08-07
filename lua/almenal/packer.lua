@@ -87,6 +87,12 @@ require('pckr').add{
   -- Show git diffs in the gutter (added lines, etc)
   "lewis6991/gitsigns.nvim";
 
+  -- TODO comment highlighting
+  "folke/todo-comments.nvim";
+
+  -- Highlight matches while in visual mode
+  "wurli/visimatch.nvim";
+
   -- Auto close parenthesis, quotes, etc
   -- I don't like it, it interferes with stuff a lot.
   -- use("m4xshen/autoclose.nvim")
