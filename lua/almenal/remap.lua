@@ -107,3 +107,13 @@ vim.keymap.set("n", "<leader>fr", ":!air format %<CR>")
 -- Python debugging: insert an f-string in debugging mode
 vim.keymap.set("n", "<leader>pp", "iprint(f\"{=}\")<Esc>F{") -- a) empty template
 vim.keymap.set("n", "<leader>pt", "yiwoprint(f\"{=}\")<Esc>F{p") -- b) debug this variable
+
+
+vim.api.nvim_create_user_command('Untab', function()
+    vim.cmd('%s/\t/    /g')
+end, {})
+
+
+-- Run current python file with uv
+vim.keymap.set("n", "<leader>ur", ":!uv run %<CR>")
+
