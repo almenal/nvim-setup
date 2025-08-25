@@ -5,7 +5,8 @@ lsp.preset("recommended")
 lsp.ensure_installed({
   'rust_analyzer',
   -- 'pyright' -- fails for some reason
-  'pylsp'
+  -- 'pylsp'
+  'ruff'
 })
 
 -- Fix Undefined global 'vim'
@@ -18,40 +19,6 @@ lsp.configure('lua-language-server', {
         }
     }
 })
-
--- Change default warnings in Python LSP
---   E501: line too long
---   E402: module import not at top of file
-require('lspconfig').pylsp.setup{
-    settings = {
-        pylsp = {
-            pylsp = {
-                plugins = {
-                    pycodestyle = {
-                        -- ignore = {"E402", "E501"},
-                        ignore = {"E402"},
-                        maxLineLength = 90
-                    }
-                }
-            }
-        }
-    }
-}
--- require('mason-lspconfig').pylsp.setup({
---     handlers = {
---         pylsp = {
---             pylsp = {
---                 plugins = {
---                     pycodestyle = {
---                         -- ignore = {"E402", "E501"},
---                         ignore = {"E402"},
---                         maxLineLength = 90
---                     }
---                 }
---             }
---         }
---         }
--- })
 
 
 local cmp = require('cmp')
