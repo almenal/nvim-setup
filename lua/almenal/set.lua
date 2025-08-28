@@ -30,7 +30,7 @@ vim.opt.colorcolumn = "88"
 
 -- Open files without folding
 vim.opt.foldlevel = 99
-vim.opt.foldlevelstart = 1
+vim.opt.foldlevelstart = 99
 
 -- Make gutter wider to fit in LSP warnigs and gitsigns diff indications
 vim.opt.signcolumn="auto:1-4"
