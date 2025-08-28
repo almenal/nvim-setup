@@ -77,6 +77,11 @@ vim.api.nvim_create_user_command('Packages', function()
     vim.cmd('tabnew ~/.config/nvim/lua/almenal/packer.lua')
 end, {})
 
+-- Open the plugin list
+vim.api.nvim_create_user_command('Plugins', function()
+    vim.cmd('tabnew ~/.config/nvim/after/plugin')
+end, {})
+
 -- Trim trailing whitespace
 vim.api.nvim_create_user_command('TrimSpace', function()
     local current_pos = vim.api.nvim_win_get_cursor(0)
