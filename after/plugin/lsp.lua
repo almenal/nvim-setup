@@ -1,26 +1,48 @@
-local lsp = require("lsp-zero")
-
-lsp.preset("recommended")
-
-lsp.ensure_installed({
-  'rust_analyzer',
-  -- 'pyright' -- fails for some reason
-  -- 'pylsp'
-  'ruff'
-})
+-- local lsp = require("lsp-zero")
+-- lsp.preset("recommended")
+-- lsp.ensure_installed({
+--   'rust_analyzer',
+--   -- 'pyright' -- fails for some reason
+--   'pylsp',
+--   'ruff'
+-- })
 
 -- Fix Undefined global 'vim'
-lsp.configure('lua-language-server', {
-    settings = {
-        Lua = {
-            diagnostics = {
-                globals = { 'vim' }
-            }
-        }
-    }
+-- lsp.configure('lua-language-server', {
+--     settings = {
+--         Lua = {
+--             diagnostics = {
+--                 globals = { 'vim' }
+--             }
+--         }
+--     }
+-- })
+--
+-- require('lspconfig').ruff.setup({
+--   init_options = {
+--     settings = {
+--       -- Ruff language server settings go here
+--     }
+--   }
+-- })
+
+vim.lsp.enable('ruff')
+-- vim.lsp.enable('pyright')
+
+-- https://posit-dev.github.io/air/editor-neovim.html
+require("lspconfig").air.setup({
+    -- Format on save. To disable, comment inside setup({})
+    on_attach = function(_, bufnr)
+        vim.api.nvim_create_autocmd("BufWritePre", {
+            buffer = bufnr,
+            callback = function()
+                vim.lsp.buf.format()
+            end,
+        })
+    end,
 })
 
-
+local lsp = require("lsp-zero")
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
 local cmp_mappings = lsp.defaults.cmp_mappings({

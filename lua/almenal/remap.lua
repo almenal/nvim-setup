@@ -27,7 +27,7 @@ vim.keymap.set("i", "<C-c>", "<Esc>")
 
 vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
-vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
+vim.keymap.set("n", "<leader>fr", vim.lsp.buf.format)
 
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
@@ -90,19 +90,6 @@ end, {})
 vim.api.nvim_create_user_command('Whoopsie', function()
     vim.cmd('Git commit --amend --no-edit')
 end, {})
-
-vim.api.nvim_create_user_command('Air', function(opts)
-    local fname = vim.api.nvim_buf_get_name(0)
-    local force = opts.fargs[1] == 'force'
-    if not force and fname:lower():sub(-2) ~= ".r" then
-        print("Current file is not an R script. Use ':Air force' to run anyway.")
-        return
-    end
-    vim.cmd('!air format %')
-end, {
-    nargs = '?'
-})
-vim.keymap.set("n", "<leader>fr", ":!air format %<CR>")
 
 -- Python debugging: insert an f-string in debugging mode
 vim.keymap.set("n", "<leader>pp", "iprint(f\"{=}\")<Esc>F{") -- a) empty template
