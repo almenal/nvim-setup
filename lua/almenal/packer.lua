@@ -59,14 +59,12 @@ require('pckr').add{
   "nvim-treesitter/nvim-treesitter-context";
 
   ------------------------ Themes
+  --- to set a theme, run :colorscheme <theme>
   "ellisonleao/gruvbox.nvim";
-  -- use 'navarasu/onedark.nvim'
- --  use({
- --      'rose-pine/neovim', as = 'rose-pine',
- --      config = function()
- --    	  vim.cmd('colorscheme rose-pine')
- --      end
- --  }
+  "navarasu/onedark.nvim";
+  "EdenEast/nightfox.nvim";
+  -- pckr doesn't support aliases for packages so this would be imported as 'nvim'
+  -- "rose-pine/neovim"; 
 
 
   ------------------------ Custom
