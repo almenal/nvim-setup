@@ -91,10 +91,13 @@ require('pckr').add{
   -- Highlight matches while in visual mode
   "wurli/visimatch.nvim";
 
+  -- autocompletion for emojis when typing :
+  "hrsh7th/cmp-emoji";
+
+
   -- Auto close parenthesis, quotes, etc
   -- I don't like it, it interferes with stuff a lot.
   -- use("m4xshen/autoclose.nvim")
-
 
   -- Extra plugins in the theprimeagen dotfiles repo that I don't need for now
   --use("folke/zen-mode.nvim")
@@ -113,9 +116,5 @@ require('pckr').add{
   --        }
   --    end
   --})
-
-
-  "hrsh7th/cmp-emoji";
-
 }
 
