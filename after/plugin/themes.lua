@@ -23,5 +23,6 @@ require('onedark').setup {
 require('nightfox')
 
 -- set startup theme, can be switched anytime
+vim.o.background = "dark"
 vim.cmd("colorscheme duskfox")
 
