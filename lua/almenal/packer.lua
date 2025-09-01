@@ -94,6 +94,7 @@ require('pckr').add{
   -- autocompletion for emojis when typing :
   "hrsh7th/cmp-emoji";
 
+  {"mistricky/codesnap.nvim", run = "make"};
 
   -- Auto close parenthesis, quotes, etc
   -- I don't like it, it interferes with stuff a lot.
