@@ -60,6 +60,8 @@ require('pckr').add{
 
   ------------------------ Themes
   --- to set a theme, run :colorscheme <theme>
+  "zaldih/themery.nvim"; -- Alternatively, run :Themery
+
   "ellisonleao/gruvbox.nvim";
   "navarasu/onedark.nvim";
   "EdenEast/nightfox.nvim";
